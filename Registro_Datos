@@ -1,0 +1,39 @@
+from Registro_V1 import programa_standar_input
+import os, sys
+
+print("1) Registro")
+print("2) Listado")
+print("3) Busqueda")
+print("4) Salir")
+opcion = int(input("Elija: "))
+
+if(opcion == 1):
+    programa_standar_input()
+elif(opcion == 2):
+    path = os.listdir()
+    nombre_deseado = input("Archivo a buscar: ")
+    archivo = open(nombre_deseado, 'r')
+    for i in path:
+        if(i == nombre_deseado):
+            hey = archivo.readlines()
+            for a in hey:
+                x = a.rstrip('\n')
+                print(x)
+elif(opcion == 3):
+    path = os.listdir()
+    nombre_deseado = input("Archivo a buscar: ")
+    cedula = input("Cedula: ")
+    archivo = open(nombre_deseado, 'r')
+    for i in path:
+        if(i == nombre_deseado):
+            hey = archivo.readlines()
+            for a in hey:
+                sin_comas = a.split(',')
+                for h in sin_comas:
+                    if(h==cedula):
+                        for L in sin_comas:
+                            print(L)
+elif(opcion == 4):
+    sys.exit()
+                
+
